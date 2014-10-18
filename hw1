@@ -1,0 +1,16 @@
+
+(* Nafees Noor - CSI 519 - Assignment # 1 *)
+
+		
+
+
+(* This function takes in one integer number and checks whether the binary representation of the number has 2 consecutive 1's or not *)
+(* If it does then returns true otherwise false *)
+
+
+	fun consec_ones(0) =  false
+	| consec_ones(n) = if (abs(n) rem 2) = 1 andalso ((abs(n) div 2) rem 2) = 1 then true
+				     else
+				     consec_ones(abs(n) div 2)
+
+
