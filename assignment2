@@ -1,0 +1,24 @@
+(* Nafees Noor - CSI 519 - Assignment # 2 *)
+(* This part takes a function named foo with a list parameter named ls *)
+(* Then checks and decide whether the given list is a concatenation of two identical lists *)
+	
+        local
+
+          fun check_equal(ls,  i, mid, temp ) =
+                if((i =  mid)  andalso (ls = rev(temp) @ rev(temp)))
+                then true
+                else if (i < mid)
+                then
+                   (check_equal(ls,i + 1, mid, nth(ls, i):: temp))
+                else
+                    false
+        in
+
+        fun foo([]) = true
+        | foo(ls) =
+
+            if((length(ls) rem 2) = 1)  then false
+            else check_equal(ls, 0, length(ls)div 2, [])
+
+        end
+
